@@ -1,6 +1,6 @@
 import Router from './Router';
 import GlobalStyle from './style/GlobalStyle';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import './style/font.css';
 
 function App() {
