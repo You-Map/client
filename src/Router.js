@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // Imported Pages
-import Intro from './pages/Intro';
-import Map from './pages/Map';
-import Place from './pages/Place';
-import Purpose from './pages/Purpose';
-import Social from './pages/Social';
+import Intro from './pages/Intro/Intro';
+import Map from './pages/Map/Map';
+import Place from './pages/Place/Place';
+import Purpose from './pages/Purpose/Purpose';
+import Social from './pages/Social/Social';
 import Nav from './components/Nav';
 
 const Router = () => {
