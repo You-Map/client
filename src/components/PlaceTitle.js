@@ -5,20 +5,36 @@ import { useNavigate } from 'react-router-dom';
 const PlaceTitle = () => {
   const navigate = useNavigate();
 
-  
+  const goToMain = () => {
+    navigate('/place');
+  };
+
   const goToRest = () => {
     navigate('/placerest');
   };
+
+  const goToStudy = () => {
+    navigate('/placestudy');
+  };
+
+  const goToTeam = () => {
+    navigate('/placeteam');
+  };
+
+  const goToPath = () => {
+    navigate('/placepath');
+  };
+
   return (
     <TitleContainer>
       <MainTtile>정하상관(J관)</MainTtile>
       <HorizontalLine />
       <SelectMenu>
-        <All>전체</All>
+        <All onClick={goToMain}>전체</All>
         <Rest onClick={goToRest}>휴게</Rest>
-        <Study>공부</Study>
-        <Team>팀플</Team>
-        <Path>경로</Path>
+        <Study onClick={goToStudy}>공부</Study>
+        <Team onClick={goToTeam}>팀플</Team>
+        <Path onClick={goToPath}>경로</Path>
       </SelectMenu>
     </TitleContainer>
   );
@@ -65,8 +81,13 @@ const SelectMenu = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  cursor: pointer;
 `;
 
+const ClickAll = styled.div`
+  color: #3c6255;
+  font-weight: 900;
+`;
 const All = styled.div``;
 const Rest = styled.div``;
 const Study = styled.div``;

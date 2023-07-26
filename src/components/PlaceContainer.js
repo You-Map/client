@@ -5,58 +5,93 @@ import {
   faUsers,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import PlaceBox from './PlaceBox';
 import styled from 'styled-components';
 
-const PlaceContainer = ({ purpose, data }) => {
+const PlaceContainer = ({ data, purpose }) => {
+  let [posts, setPosts] = useState(data);
+  const sortPostsLike = () => {
+    const sortedPosts = [...posts].sort((a, b) => (a.like > b.like ? -1 : 1));
+    setPosts(sortedPosts);
+  };
+  const sortPostsDate = () => {
+    const sortedPosts = [...posts].sort((a, b) =>
+      a.createdDate > b.createdDate ? -1 : 1
+    );
+    setPosts(sortedPosts);
+  };
+
   return (
     <div>
-      {purpose === 1 ? (
+      {purpose === 'rest' ? (
         <>
-          <PlacePurpose>
-            <FontAwesomeIcon icon={faBed} />
-            휴게
-          </PlacePurpose>
+          <PurposeContainer>
+            <PlacePurpose>
+              <FontAwesomeIcon icon={faBed} />
+              휴게
+            </PlacePurpose>
+            <PurposeButton>
+              <button onClick={sortPostsLike}>인기순</button>
+              <button onClick={sortPostsDate}>최신순</button>
+            </PurposeButton>
+          </PurposeContainer>
         </>
       ) : (
         <></>
       )}
-      {purpose === 2 ? (
+      {purpose === 'study' ? (
         <>
-          <PlacePurpose>
-            <FontAwesomeIcon icon={faBookOpen} />
-            공부
-          </PlacePurpose>
+          <PurposeContainer>
+            <PlacePurpose>
+              <FontAwesomeIcon icon={faBookOpen} />
+              공부
+            </PlacePurpose>
+            <PurposeButton>
+              <button onClick={sortPostsLike}>인기순</button>
+              <button onClick={sortPostsDate}>최신순</button>
+            </PurposeButton>
+          </PurposeContainer>
         </>
       ) : (
         <></>
       )}
-      {{ purpose } === '3' ? (
+      {purpose === 'team' ? (
         <>
-          <PlacePurpose>
-            <FontAwesomeIcon icon={faUsers} />
-            {purpose}
-          </PlacePurpose>
+          <PurposeContainer>
+            <PlacePurpose>
+              <FontAwesomeIcon icon={faUsers} />
+              팀플
+            </PlacePurpose>
+            <PurposeButton>
+              <button onClick={sortPostsLike}>인기순</button>
+              <button onClick={sortPostsDate}>최신순</button>
+            </PurposeButton>
+          </PurposeContainer>
         </>
       ) : (
         <></>
       )}
-      {{ purpose } === '경로' ? (
+      {purpose === 'path' ? (
         <>
-          <PlacePurpose>
-            <FontAwesomeIcon icon={faMapLocationDot} />
-            {purpose}
-          </PlacePurpose>
+          <PurposeContainer>
+            <PlacePurpose>
+              <FontAwesomeIcon icon={faMapLocationDot} />
+              경로
+            </PlacePurpose>
+            <PurposeButton>
+              <button onClick={sortPostsLike}>인기순</button>
+              <button onClick={sortPostsDate}>최신순</button>
+            </PurposeButton>
+          </PurposeContainer>
         </>
       ) : (
         <></>
       )}
-
       <PlaceListContainer>
-        <PlaceBox data={data} />
-        <PlaceBox data={data} />
-        <PlaceBox data={data} />
+        <PlaceBox data={posts[0]} />
+        <PlaceBox data={posts[1]} />
+        <PlaceBox data={posts[2]} />
       </PlaceListContainer>
     </div>
   );
@@ -68,6 +103,13 @@ const PlaceListContainer = styled.div`
   height: 370;
 `;
 
+const PurposeContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 60px 20px 100px;
+`;
+
 const PlacePurpose = styled.div`
   display: flex;
   gap: 10px;
@@ -75,7 +117,10 @@ const PlacePurpose = styled.div`
   font-size: 32px;
   font-family: Noto Sans KR;
   font-weight: 700;
-  padding: 60px 60px 20px 100px;
+`;
+
+const PurposeButton = styled.button`
+  margin-right: 40px;
 `;
 
 export default PlaceContainer;

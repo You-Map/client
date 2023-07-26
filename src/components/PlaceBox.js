@@ -2,12 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const PlaceBox = (props) => {
-  const { title, location } = props.data;
+  const { title, place, like, createdDate } = props.data;
   return (
     <PlaceBoxContainer>
       <PlaceBoxImage />
       <PlaceTitle>{title}</PlaceTitle>
-      <PlaceLoctaion>{location}</PlaceLoctaion>
+      <PlaceLoctaion>{place}</PlaceLoctaion>
+      <div>{like}</div>
     </PlaceBoxContainer>
   );
 };
