@@ -1,7 +1,12 @@
-import React from "react";
+import React from 'react';
+import KakaoMap from './KakaoMap';
 
 const Map = () => {
-  return <div></div>;
+  return (
+    <div>
+      <KakaoMap />
+    </div>
+  );
 };
 
 export default Map;
