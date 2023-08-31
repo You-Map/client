@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { BASE_URL } from '../../App';
 
-const Sidebar = ({ id }) => {
+const Sidebar = ({ id, data }) => {
   const [purpose, setPurpose] = useState(null);
   console.log(purpose);
   const [loading, setLoading] = useState(true);
@@ -27,9 +27,10 @@ const Sidebar = ({ id }) => {
   else
     return (
       <SidebarContainer>
-        <StyledButton>{id}</StyledButton>
-        <StyledButton>안녕</StyledButton>
-        <StyledButton>안녕</StyledButton>
+        <StyledButton>{data[id - 1].name}</StyledButton>
+        {data[id - 1].purposes.map((it) => (
+          <StyledButton>{it.name}</StyledButton>
+        ))}
       </SidebarContainer>
     );
 };
@@ -49,6 +50,8 @@ const Sidebar = ({ id }) => {
 // {id: 5, name: '기타', glyph: null}
 
 const SidebarContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: blue;
 `;
 

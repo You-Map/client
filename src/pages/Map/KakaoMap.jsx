@@ -14,6 +14,7 @@ const KakaoMap = () => {
 
   const [placeId, setPlaceId] = useState(null);
   const [data, setData] = useState(null);
+  console.log(data);
   const [loading, setLoading] = useState(true);
 
   const getData = async () => {
@@ -59,7 +60,7 @@ const KakaoMap = () => {
       <MapWrapper>
         {/* <button ref={$getInfoButton}>지도 정보 갖고오기</button> */}
         <MapContainer ref={$mapContainer} />
-        <Sidebar id={placeId} />
+        <Sidebar id={placeId} data={data} />
       </MapWrapper>
     );
 };
