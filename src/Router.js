@@ -7,6 +7,7 @@ import Place from './pages/Place/Place';
 import Purpose from './pages/Purpose/Purpose';
 import Social from './pages/Social/Social';
 import Nav from './components/Nav';
+import SignupBox from './pages/Intro/SignupBox';
 
 const Router = () => {
   return (
@@ -14,6 +15,7 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<Intro />} />
+        <Route path="/register" element={<SignupBox />} />
         <Route path="/map" element={<Map />} />
         <Route path="/place" element={<Place />} />
         <Route path="/purpose" element={<Purpose />} />
