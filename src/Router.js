@@ -12,7 +12,7 @@ import SignupBox from './pages/Intro/SignupBox';
 const Router = () => {
   return (
     <BrowserRouter>
-      <Nav />
+      {/* <Nav /> */}
       <Routes>
         <Route path="/" element={<Intro />} />
         <Route path="/register" element={<SignupBox />} />

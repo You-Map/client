@@ -15,6 +15,9 @@ const KakaoMap = () => {
   const [placeId, setPlaceId] = useState(null);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [sidebarLoading, setSidebarLoading] = useState(true);
+  const [change, setChange] = useState(false);
+  console.log(change);
 
   const getData = async () => {
     const url = BASE_URL + '/buildings';
@@ -49,6 +52,8 @@ const KakaoMap = () => {
       marker.setTitle(it.id);
       kakao.maps.event.addListener(marker, 'click', function (event) {
         setPlaceId(marker.getTitle());
+        setSidebarLoading(false);
+        setChange((prev) => !prev);
       });
     });
   }, [data]);
@@ -59,18 +64,24 @@ const KakaoMap = () => {
       <MapWrapper>
         {/* <button ref={$getInfoButton}>지도 정보 갖고오기</button> */}
         <MapContainer ref={$mapContainer} />
-        <Sidebar id={placeId} />
+        <Sidebar
+          loading={sidebarLoading}
+          data={data[placeId - 1]}
+          change={change}
+        />
       </MapWrapper>
     );
 };
 
 const MapWrapper = styled.div`
-  display: flex;
+  z-index: 2;
+  position: relative;
 `;
 
 const MapContainer = styled.div`
-  width: 1512px;
-  height: 982px;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 `;
 
 export default KakaoMap;
