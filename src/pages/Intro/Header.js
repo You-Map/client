@@ -9,7 +9,7 @@ import SignupBox from './SignupBox';
 
 const Header = ({ isRegisterOpen }) => {
   const [isLoginOpen, toggleLoginModal] = useModal();
-  const [isRegister, toggleRegisterModal] = useModal();
+  const [isRegisterOpen, toggleRegisterModal] = useModal();
 
   return (
     <HeaderContainer>
@@ -17,17 +17,16 @@ const Header = ({ isRegisterOpen }) => {
         <FontAwesomeIcon icon={faLocationDot} />
         YouMap
       </HeaderLogo>
-      <HeaderButton onClick={toggleLoginModal}>Sign</HeaderButton>
+      <HeaderButtonContainer>
+        <HeaderButton onClick={toggleLoginModal}>로그인</HeaderButton>
+        <HeaderButton onClick={toggleRegisterModal}>회원가입</HeaderButton>
+      </HeaderButtonContainer>
       <Modal state={isLoginOpen} toggleModal={toggleLoginModal}>
         <LoginBox />
       </Modal>
-      {isRegisterOpen ? (
-        <Modal state={isRegister} toggleModal={toggleRegisterModal}>
-          <SignupBox />
-        </Modal>
-      ) : (
-        <></>
-      )}
+      <Modal state={isRegisterOpen} toggleModal={toggleRegisterModal}>
+        <SignupBox />
+      </Modal>
     </HeaderContainer>
   );
 };
@@ -57,6 +56,8 @@ const HeaderLogo = styled.div`
   align-items: center;
   gap: 10px;
 `;
+
+const HeaderButtonContainer = styled.div``;
 
 const HeaderButton = styled.button`
   background-color: ${palette.brand_lv4};
