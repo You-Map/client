@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Logo from '../Logo';
+
 import {
   faMapPin,
   faBed,
@@ -33,7 +34,9 @@ const Sidebar = ({ data, loading, change }) => {
   else
     return (
       <SidebarContainer>
-        {/* <StyledButton>{data.name}</StyledButton> */}
+        <TitleBox>
+          <Text children={data.name} size="20px" weight={700} />
+        </TitleBox>
         <PurposeBox className={change ? 'on' : 'off'}>
           {data.purposes.map((it) => (
             <StyledButton>
@@ -45,10 +48,9 @@ const Sidebar = ({ data, loading, change }) => {
             </StyledButton>
           ))}
           {data.purposes.length % 2 !== 0 ? (
-            <StyledButton style={{ opacity: 0, cursor: 'default' }}>
-              <FontAwesomeIcon icon={faGuitar} style={{ fontSize: '18px' }} />
-              <Text children={'기타'} weight={500} size="18px" />
-            </StyledButton>
+            <div style={{ width: '110px' }}>
+              <Logo width="70px" color="#B3AFAF" />
+            </div>
           ) : null}
         </PurposeBox>
       </SidebarContainer>
@@ -135,6 +137,11 @@ const StyledButton = styled.button`
   &:hover {
     filter: brightness(80%);
   }
+`;
+
+const TitleBox = styled.div`
+  padding-top: 25px;
+  text-align: center;
 `;
 
 export default Sidebar;
