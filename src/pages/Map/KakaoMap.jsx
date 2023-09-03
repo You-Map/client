@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { getMapInfo, getMouseInfo, getMarkers } from './getMapInfo';
+// import { getMapInfo, getMouseInfo, getMarkers } from './getMapInfo';
 import axios from 'axios';
 import { BASE_URL } from '../../App';
 
@@ -10,7 +10,7 @@ const { kakao } = window;
 
 const KakaoMap = () => {
   const $mapContainer = useRef(null);
-  const $getInfoButton = useRef(null);
+  // const $getInfoButton = useRef(null);
 
   const [placeId, setPlaceId] = useState(null);
   const [data, setData] = useState(null);
@@ -55,6 +55,7 @@ const KakaoMap = () => {
         setSidebarLoading(false);
         setChange((prev) => !prev);
       });
+      return null;
     });
   }, [data]);
 
