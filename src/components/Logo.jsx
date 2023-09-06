@@ -20,7 +20,6 @@ const Logo = ({ width = '90px', color = '#000' }) => {
 const LogoContainer = styled.div`
   width: ${({ width }) => width};
   height: auto;
-  margin: 0 auto;
 `;
 
 export default Logo;

@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import Router from './Router';
 import GlobalStyle from './style/GlobalStyle';
 import styled from 'styled-components';
@@ -10,7 +11,7 @@ function App() {
     <>
       <GlobalStyle />
       <AppContainer>
-        <Router />
+        <BrowserRouter children={<Router />} />
       </AppContainer>
     </>
   );
