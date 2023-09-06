@@ -8,6 +8,7 @@ import Purpose from './pages/Purpose/Purpose';
 import Social from './pages/Social/Social';
 import SignupBox from './pages/Intro/SignupBox';
 import Header from './components/Header';
+import Write from './pages/Write';
 
 const Router = () => {
   const location = useLocation().pathname;
@@ -27,6 +28,7 @@ const Router = () => {
         <Route path="/placepath" element={<PlacePath />} /> */}
         <Route path="/purpose" element={<Purpose />} />
         <Route path="/social" element={<Social />} />
+        <Route path="/write" element={<Write />} />
       </Routes>
     </>
   );
