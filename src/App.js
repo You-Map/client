@@ -3,6 +3,8 @@ import GlobalStyle from './style/GlobalStyle';
 import styled from 'styled-components';
 import './style/font.css';
 
+export const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 function App() {
   return (
     <>
