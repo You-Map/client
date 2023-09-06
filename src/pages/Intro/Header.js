@@ -7,7 +7,7 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SignupBox from './SignupBox';
 
-const Header = ({ isRegisterOpen }) => {
+const Header = () => {
   const [isLoginOpen, toggleLoginModal] = useModal();
   const [isRegisterOpen, toggleRegisterModal] = useModal();
 

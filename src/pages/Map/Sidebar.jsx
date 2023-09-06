@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Logo from '../Logo';
+import Logo from '../../components/Logo';
 
 import {
   faMapPin,
@@ -48,7 +48,13 @@ const Sidebar = ({ data, loading, change }) => {
             </StyledButton>
           ))}
           {data.purposes.length % 2 !== 0 ? (
-            <div style={{ width: '110px' }}>
+            <div
+              style={{
+                width: '110px',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
               <Logo width="70px" color="#B3AFAF" />
             </div>
           ) : null}

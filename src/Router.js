@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 // Imported Pages
 import Intro from './pages/Intro/Intro';
@@ -6,13 +6,15 @@ import Map from './pages/Map/Map';
 import Place from './pages/Place/Place';
 import Purpose from './pages/Purpose/Purpose';
 import Social from './pages/Social/Social';
-import Nav from './components/Nav';
 import SignupBox from './pages/Intro/SignupBox';
+import Header from './components/Header';
 
 const Router = () => {
+  const location = useLocation().pathname;
+
   return (
-    <BrowserRouter>
-      {/* <Nav /> */}
+    <>
+      {location !== '/' && <Header />}
       <Routes>
         <Route path="/" element={<Intro />} />
         <Route path="/register" element={<SignupBox />} />
@@ -21,7 +23,7 @@ const Router = () => {
         <Route path="/purpose" element={<Purpose />} />
         <Route path="/social" element={<Social />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 };
 
