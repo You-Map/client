@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { palette } from '../../style/palette';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import axios from 'axios';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const LoginBox = () => {
