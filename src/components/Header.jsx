@@ -3,7 +3,7 @@ import Wrapper from './Wrapper';
 import Logo from './Logo';
 import Text from '../pages/Map/Text';
 
-import ProfileImg from '../assets/Images/DefaultProfile.png';
+import ProfileImg from '../assets/images/DefaultProfile.png';
 
 const Header = () => {
   return (

@@ -18,16 +18,9 @@
     "react-router": "^6.15.0",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
-    "styled-components": "^5.3.11",
+    "styled-components": "^5.3.8",
     "styled-reset": "^4.4.7",
     "web-vitals": "^2.1.4"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "prettier"
-    ]
   },
   "scripts": {
     "start": "react-scripts start",
@@ -50,5 +43,12 @@
   "devDependencies": {
     "eslint-config-prettier": "^8.8.0",
     "prettier": "3.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "prettier"
+    ]
   }
 }

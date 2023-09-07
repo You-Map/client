@@ -18,6 +18,7 @@ const KakaoMap = () => {
   const [sidebarLoading, setSidebarLoading] = useState(true);
   const [change, setChange] = useState(false);
   console.log(change);
+  console.log(BASE_URL);
 
   const getData = async () => {
     const url = BASE_URL + '/buildings';
