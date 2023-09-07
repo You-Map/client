@@ -9,6 +9,7 @@ import Social from './pages/Social/Social';
 import SignupBox from './pages/Intro/SignupBox';
 import Header from './components/Header';
 import Write from './pages/Write';
+import MyPage from './pages/MyPage/MyPage';
 
 const Router = () => {
   const location = useLocation().pathname;
@@ -29,6 +30,7 @@ const Router = () => {
         <Route path="/purpose" element={<Purpose />} />
         <Route path="/social" element={<Social />} />
         <Route path="/write" element={<Write />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </>
   );

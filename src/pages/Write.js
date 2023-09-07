@@ -152,6 +152,7 @@ const SubmitButtonDiv = styled.div`
   padding: 23px;
   display: flex;
   justify-content: right;
+  margin-top: 70px;
 `;
 
 const SubmitButton = styled.button`
