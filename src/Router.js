@@ -10,6 +10,8 @@ import SignupBox from './pages/Intro/SignupBox';
 import Header from './components/Header';
 import Write from './pages/Write';
 import MyPage from './pages/MyPage/MyPage';
+import Post from './pages/Post/Post';
+import History from './pages/Post/History';
 
 const Router = () => {
   const location = useLocation().pathname;
@@ -31,6 +33,8 @@ const Router = () => {
         <Route path="/social" element={<Social />} />
         <Route path="/write" element={<Write />} />
         <Route path="/mypage" element={<MyPage />} />
+        <Route path="/post" element={<Post />} />
+        <Route path="/history" element={<History />} />
       </Routes>
     </>
   );
