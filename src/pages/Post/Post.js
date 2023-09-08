@@ -10,6 +10,10 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import TitleDiv from './TitleDiv';
+import image1 from '../../assets/images/DummyImage1.jpeg';
+import image2 from '../../assets/images/DummyImage2.avif';
+import image3 from '../../assets/images/DummyImage3.avif';
+import { Gallery } from 'react-grid-gallery';
 
 const MediaDiv = styled.div`
   margin: 0px auto;
@@ -23,6 +27,20 @@ const MediaDiv = styled.div`
 `;
 
 const Post = () => {
+  const images = [
+    {
+      src: image1,
+    },
+    {
+      src: image2,
+    },
+    {
+      src: image3,
+    },
+    {
+      src: image2,
+    },
+  ];
   return (
     <MediaDiv>
       <TitleDiv />
@@ -34,7 +52,14 @@ const Post = () => {
         <MenuButton>역사</MenuButton>
         <MenuButton>편집</MenuButton>
       </MenuDiv>
-      <ImgDiv></ImgDiv>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      ></div>
+      <Gallery images={images} enableImageSelection={false} />
       <BodyText>
         생각하는 숲은 로욜라 도서관 1관 3층에 위치해 있는 공부하기 좋은 장소다.
         책상 및 의자가 있다. <br />
@@ -84,10 +109,8 @@ const Like = styled(MenuButton)`
   gap: 3px;
 `;
 
-const ImgDiv = styled.div``;
-
 const BodyText = styled.h3`
-  margin: 10px;
+  margin: 30px 10px;
   color: #000;
   font-family: Noto Sans KR;
   font-size: 14px;
