@@ -8,7 +8,7 @@ import Purpose from './pages/Purpose/Purpose';
 import Social from './pages/Social/Social';
 import SignupBox from './pages/Intro/SignupBox';
 import Header from './components/Header';
-import Write from './pages/Write';
+import Write from './pages/Write/Write';
 import MyPage from './pages/MyPage/MyPage';
 import Post from './pages/Post/Post';
 import History from './pages/Post/History';

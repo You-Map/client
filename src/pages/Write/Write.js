@@ -8,6 +8,7 @@ import {
   faMapLocationDot,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PhotoUploader from './PhotoUploader';
 
 const MediaDiv = styled.div`
   margin: 0px auto;
@@ -131,12 +132,15 @@ const Write = () => {
         </InfoLine>
       </InfoBox>
       <InfoBox>
-        <InfoPhotoDiv>
-          <InfoDiv>
-            <InfoTitle>사진</InfoTitle>
-            <InfoSubtitle>0/10</InfoSubtitle>
-          </InfoDiv>
-        </InfoPhotoDiv>
+        <InfoLine style={{ marginTop: '20px' }}>
+          <InfoPhotoDiv>
+            <InfoDiv>
+              <InfoTitle>사진</InfoTitle>
+              <InfoSubtitle>0/10</InfoSubtitle>
+            </InfoDiv>
+          </InfoPhotoDiv>
+          <PhotoUploader />
+        </InfoLine>
       </InfoBox>
       <BodyInput
         onChange={handleChange}
