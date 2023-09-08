@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PhotoUploader from './PhotoUploader';
+import BuildingDropDown from './BuildingDropDown';
 
 const MediaDiv = styled.div`
   margin: 0px auto;
@@ -47,6 +48,8 @@ const Write = () => {
 
   const isOptionSelected = (option) => selectedOptions.includes(option);
 
+  console.log(selectedOptions);
+
   // 3. Text Counter
   const maxLength = 20;
   const [title, setTitle] = useState('');
@@ -58,6 +61,14 @@ const Write = () => {
       setTitle(inputText);
       setRemainingChars(inputText.length);
     }
+  };
+
+  // 4. Image Count
+  const [imageCount, setImageCount] = useState(0); // Initialize with 0 images
+
+  const handleImageCountChange = (count) => {
+    // This function receives the image count from the child component
+    setImageCount(count);
   };
 
   return (
@@ -74,7 +85,7 @@ const Write = () => {
           <InfoTitle>카테고리</InfoTitle>
           <CategoryDiv>
             <Category
-              className={isOptionSelected('Option 1') ? 'selected' : ''}
+              selected={isOptionSelected('Option 1')}
               onClick={() => handleButtonClick('Option 1')}
             >
               {' '}
@@ -82,7 +93,7 @@ const Write = () => {
               공부
             </Category>
             <Category
-              className={isOptionSelected('Option 2') ? 'selected' : ''}
+              selected={isOptionSelected('Option 2')}
               onClick={() => handleButtonClick('Option 2')}
             >
               {' '}
@@ -93,7 +104,7 @@ const Write = () => {
               팀플
             </Category>
             <Category
-              className={isOptionSelected('Option 3') ? 'selected' : ''}
+              selected={isOptionSelected('Option 3')}
               onClick={() => handleButtonClick('Option 3')}
             >
               {' '}
@@ -101,7 +112,7 @@ const Write = () => {
               휴식
             </Category>
             <Category
-              className={isOptionSelected('Option 4') ? 'selected' : ''}
+              selected={isOptionSelected('Option 4')}
               onClick={() => handleButtonClick('Option 4')}
             >
               {' '}
@@ -113,7 +124,7 @@ const Write = () => {
             </Category>
           </CategoryDiv>
           <InfoTitle>건물</InfoTitle>
-          <BuildingToggle />
+          <BuildingDropDown />
         </InfoLine>
         <InfoLine>
           <InfoTitleDiv>
@@ -136,10 +147,10 @@ const Write = () => {
           <InfoPhotoDiv>
             <InfoDiv>
               <InfoTitle>사진</InfoTitle>
-              <InfoSubtitle>0/10</InfoSubtitle>
+              <InfoSubtitle>{imageCount}/10</InfoSubtitle>
             </InfoDiv>
           </InfoPhotoDiv>
-          <PhotoUploader />
+          <PhotoUploader onImageCountChange={handleImageCountChange} />
         </InfoLine>
       </InfoBox>
       <BodyInput
@@ -225,12 +236,12 @@ const CategoryDiv = styled.div`
 
 const Category = styled.button`
   width: 48px;
-  background-color: white;
+  background-color: ${(props) => (props.selected ? '#3C6255' : 'white')};
   border-radius: 5px;
-  border: 0.5px solid #dadada;
+  border: 0.5px solid ${(props) => (props.selected ? '#3C6255' : '#dadada')};
   padding: 3px 5px;
   margin-left: 6px;
-  color: #dadada;
+  color: ${(props) => (props.selected ? '#fff' : '#dadada')};
   font-family: Noto Sans KR;
   font-size: 10px;
   font-style: normal;
@@ -241,14 +252,7 @@ const Category = styled.button`
   align-items: center;
   gap: 3px;
   cursor: pointer;
-
-  &:selected {
-    background-color: #3498db;
-    color: #fff;
-  }
 `;
-
-const BuildingToggle = styled.div``;
 
 const TitleInput = styled.input`
   width: 100%;

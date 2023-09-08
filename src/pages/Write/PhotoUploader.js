@@ -106,7 +106,7 @@ const IconTextContainer = styled.div`
   gap: 5px;
 `;
 
-const PhotoUploader = () => {
+const PhotoUploader = ({ onImageCountChange }) => {
   const [images, setImages] = useState([]);
   const [representative, setRepresentative] = useState(null);
 
@@ -121,6 +121,7 @@ const PhotoUploader = () => {
         if (!representative) {
           setRepresentative(imageUrl);
         }
+        onImageCountChange(newImages.length);
       };
       reader.readAsDataURL(file);
     }
@@ -136,6 +137,7 @@ const PhotoUploader = () => {
     if (representative === imageUrl) {
       setRepresentative(newImages[0] || null); // Set the first image as representative or null if there are no images left
     }
+    onImageCountChange(newImages.length);
   };
 
   return (
